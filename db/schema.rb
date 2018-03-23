@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323064336) do
+ActiveRecord::Schema.define(version: 20180323071602) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -77,11 +77,9 @@ ActiveRecord::Schema.define(version: 20180323064336) do
   end
 
   create_table "field_of_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.integer  "interest_id"
     t.string   "type"
-    t.string   "category"
-    t.string   "subcategory"
-    t.string   "description"
+    t.boolean  "liked"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -114,6 +112,16 @@ ActiveRecord::Schema.define(version: 20180323064336) do
     t.integer  "spendable_balance"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "external_id"
+    t.string   "category"
+    t.string   "subcategory"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
