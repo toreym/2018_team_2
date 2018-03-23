@@ -1,0 +1,50 @@
+//theme colors
+$base-blue: #001e60;
+$base-green: #84bd00;
+$base-orange: #ffb81c;
+$co-blue: #898d8d;
+$co-green: #40BD00;
+$co-orange: #ed8b00;
+$warm-blue: #401cd6;
+$cool-blue: #005f83;
+$warm-purple: #672146;
+$cool-purple: #407ec9;
+$warm-red: #e03e52;
+$cool-red: #00a3e0;
+$warm-orange: #cb6015;
+$cool-orange: #2dccd3;
+
+//basics
+body{
+
+}
+//brand
+.brand-bar {
+  background-color: $base-blue;
+}
+
+.brand-logo {
+  width: 20%;
+  height: 20%;
+}
+
+.interest-color {
+  background-color: $base-blue;
+  color: white;
+  margin: 5px;
+}
+
+.interest-color-select{
+  background-color: $co-green;
+  color: white;
+  margin: 5px;
+}
+//interest buttons
+.like {
+  background-color: $cool-red;
+}
+
+.un-like {
+  background-color: $warm-red;
+}
+//flip cards
