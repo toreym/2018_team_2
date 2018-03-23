@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323160906) do
+ActiveRecord::Schema.define(version: 20180323143905) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20180323160906) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "app_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "setting"
+    t.string   "value"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "distributions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "external_id"
     t.integer  "external_fund_id"
@@ -72,6 +80,8 @@ ActiveRecord::Schema.define(version: 20180323160906) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "login_token"
+    t.datetime "login_token_expires"
     t.index ["email"], name: "index_donors_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true, using: :btree
   end
