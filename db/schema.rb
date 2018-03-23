@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323071602) do
+ActiveRecord::Schema.define(version: 20180323141911) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -101,9 +101,12 @@ ActiveRecord::Schema.define(version: 20180323071602) do
     t.integer  "goal"
     t.date     "end_date"
     t.string   "image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "raised"
+    t.string   "primary_contact_name"
+    t.string   "primary_contact_email"
+    t.string   "primary_contact_phone"
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -140,6 +143,7 @@ ActiveRecord::Schema.define(version: 20180323071602) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "website"
     t.index ["email"], name: "index_organizations_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true, using: :btree
   end
