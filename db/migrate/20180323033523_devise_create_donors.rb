@@ -5,6 +5,7 @@ class DeviseCreateDonors < ActiveRecord::Migration[5.0]
     create_table :donors do |t|
       t.string :name
       t.string :external_id
+      t.string :external_fund_id
       t.string :fund_id
 
       ## Database authenticatable
