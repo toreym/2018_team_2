@@ -7,8 +7,12 @@ class AppSetting < ApplicationRecord
     # try to cast to the type of the default
     if setting and default
       begin
-        val = default.class(setting)
-        return val
+        if default.class == Fixnum
+          val = Integer(setting.value)
+          return val
+        else
+          return setting.value
+        end
       rescue Exception => e
         return default
       end

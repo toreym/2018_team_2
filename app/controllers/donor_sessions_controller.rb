@@ -19,7 +19,7 @@ class DonorSessionsController < ApplicationController
   end
 
   def destroy
-    self.current_user = nil
+    self.current_donor = nil
     redirect_to root_path, notice: 'Sucesfully signed-out'
   end
 end

@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_donor
 
   def current_donor=(donor)
-    session[:donor_id] = donor.id
+    if donor
+      session[:donor_id] = donor.id
+    else
+      session.delete :donor_id
+    end
   end
 
   def current_donor
