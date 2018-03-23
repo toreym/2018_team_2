@@ -87,11 +87,9 @@ ActiveRecord::Schema.define(version: 20180323143905) do
   end
 
   create_table "field_of_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.integer  "interest_id"
     t.string   "type"
-    t.string   "category"
-    t.string   "subcategory"
-    t.string   "description"
+    t.boolean  "liked"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -113,8 +111,13 @@ ActiveRecord::Schema.define(version: 20180323143905) do
     t.integer  "goal"
     t.date     "end_date"
     t.string   "image_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "raised"
+    t.string   "primary_contact_name"
+    t.string   "primary_contact_email"
+    t.string   "primary_contact_phone"
+    t.boolean  "approved"
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,6 +126,16 @@ ActiveRecord::Schema.define(version: 20180323143905) do
     t.integer  "spendable_balance"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "external_id"
+    t.string   "category"
+    t.string   "subcategory"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -141,6 +154,7 @@ ActiveRecord::Schema.define(version: 20180323143905) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "website"
     t.index ["email"], name: "index_organizations_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true, using: :btree
   end
