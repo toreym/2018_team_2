@@ -1,0 +1,2 @@
+class FieldOfInterest < ApplicationRecord
+end
