@@ -1,0 +1,2 @@
+class FundingNeed < ApplicationRecord
+end
