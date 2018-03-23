@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323141911) do
+ActiveRecord::Schema.define(version: 20180323160906) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20180323141911) do
     t.string   "primary_contact_name"
     t.string   "primary_contact_email"
     t.string   "primary_contact_phone"
+    t.boolean  "approved"
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
