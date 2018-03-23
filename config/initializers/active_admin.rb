@@ -1,10 +1,67 @@
 ActiveAdmin.setup do |config|
+
+
+  class CustomBlankSlate < ActiveAdmin::Component
+    def build(content)
+      # see arbre documentation and blank_slate.rb for details
+    end
+  end
+
+  ActiveAdmin.setup do |config|
+
+    config.register_stylesheet '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin,latin-ext'
+
+    config.namespace :admin do |admin|
+
+      admin.site_title = "Community Foundation"
+      admin.authentication_method = :authenticate_admin_user!
+      admin.current_user_method = :current_admin_user
+      admin.logout_link_path = :destroy_admin_user_session_path
+      admin.batch_actions = true
+      #admin.localize_format = :long
+
+      admin.comments = false
+      #admin.on_unauthorized_access = :render_403
+      # admin.authorization_adapter = ActiveAdmin::CanCanAdapter
+      # admin.cancan_ability_class = "AdminAbility"
+
+    end
+
+
+    config.namespace :myorg do |enterprise|
+
+      enterprise.site_title = "Community Foundation"
+      enterprise.authentication_method = :authenticate_organization!
+      enterprise.current_user_method = :current_organization
+      enterprise.logout_link_path = :destroy_organization_session_path
+      enterprise.comments = false
+      enterprise.batch_actions = false
+      enterprise.authorization_adapter = ActiveAdmin::CanCanAdapter
+      enterprise.cancan_ability_class = "OrganizationAbility"
+      enterprise.root_to = 'funding_needs#index'
+      enterprise.download_links = false
+      enterprise.view_factory.blank_slate = CustomBlankSlate
+      #enterprise.on_unauthorized_access = :render_403
+
+      enterprise.build_menu :utility_navigation do |menu|
+        enterprise.add_current_user_to_menu  menu
+        menu.add({id: 'change_password', priority: 10, html_options: {},
+                  label: "Change password",
+                  url:   -> { edit_organization_registration_path },
+                  if:    :current_active_admin_user?})
+        enterprise.add_logout_button_to_menu menu
+      end
+
+    end
+
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Community Foundation"
+  #config.site_title = "Community Foundation"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -54,7 +111,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_admin_user!
+  #config.authentication_method = :authenticate_admin_user!
 
   # == User Authorization
   #
@@ -86,7 +143,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  #config.current_user_method = :current_admin_user
 
   # == Logging Out
   #
@@ -98,7 +155,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  #config.logout_link_path = :destroy_admin_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -119,7 +176,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  # config.comments = false
+  config.comments = false
   #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
@@ -138,7 +195,7 @@ ActiveAdmin.setup do |config|
   #
   # Enable and disable Batch Actions
   #
-  config.batch_actions = true
+  #config.batch_actions = true
 
   # == Controller Filters
   #
@@ -153,7 +210,7 @@ ActiveAdmin.setup do |config|
   # To understand how to localize your app with I18n, read more at
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
-  config.localize_format = :long
+  #config.localize_format = :long
 
   # == Setting a Favicon
   #
