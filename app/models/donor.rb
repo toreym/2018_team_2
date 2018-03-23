@@ -1,4 +1,11 @@
-class Donor < ApplicationRecord
+class Donor < FileUpload
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  belongs_to :fund
+  has_many :field_of_interests
 
   def new_login_token
     # get a new token. make sure to check for existing tokens.

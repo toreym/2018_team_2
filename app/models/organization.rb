@@ -5,4 +5,5 @@ class Organization < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :funding_needs
+  has_many :distributions
 end
