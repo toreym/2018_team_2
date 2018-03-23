@@ -4,6 +4,6 @@ class Donor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :donor
+  belongs_to :fund
   has_many :field_of_interests
 end
