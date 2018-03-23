@@ -5,4 +5,5 @@ class Donor < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :donor
+  has_many :field_of_interests
 end
