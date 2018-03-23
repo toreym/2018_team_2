@@ -38,7 +38,7 @@ ActiveAdmin.register Donor do
           ""
         end
       end
-      row "Magin link expires" do |d|
+      row "Magic link expires" do |d|
         if d.login_token and d.login_token_expires > DateTime.now
           d.login_token_expires
         else
