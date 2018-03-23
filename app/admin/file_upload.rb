@@ -1,10 +1,10 @@
 ActiveAdmin.register FileUpload do
-  permit_params :file, :type
+  permit_params :file, :upload_type
 
   form do |f|
     f.inputs 'FileUpload' do
       f.input :file, as: :file
-      f.input :type, :label => 'Import Type', :as => :select, :collection => FileUpload.available_types.map{|u| ["#{u.name}", "#{u.name}"]}, :selected => FileUpload.available_types.first.name
+      f.input :upload_type, :label => 'Import Type', :as => :select, :collection => FileUpload.available_types.map{|u| ["#{u.name}", "#{u.name}"]}, :selected => FileUpload.available_types.first.name
     end
     f.actions
   end
@@ -18,9 +18,10 @@ ActiveAdmin.register FileUpload do
 
       @file_upload[:file_name] = attrs[:file].original_filename
       @file_upload[:file] = attrs[:file].read
-      @file_upload[:type] = attrs[:type]
+      @file_upload[:upload_type] = attrs[:upload_type]
 
       if @file_upload.save
+        @file_upload.import
         redirect_to admin_file_upload_path(@file_upload)
       else
         render :new
@@ -34,7 +35,7 @@ ActiveAdmin.register FileUpload do
 
       @file_upload[:file_file_name] = attrs[:file].original_filename
       @file_upload[:file] = attrs[:file].read
-      @file_upload[:type] = attrs[:type]
+      @file_upload[:upload_type] = attrs[:upload_type]
 
       if @file_upload.save
         redirect_to admin_firmware_image_path(@file_upload)

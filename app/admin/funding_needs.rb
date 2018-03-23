@@ -11,6 +11,6 @@ ActiveAdmin.register FundingNeed do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :organization_id, :description, :website, :goal, :end_date, :image_url, :primary_contact_name, :primary_contact_email, :primary_contact_phone
+  permit_params :name, :organization_id, :description, :website, :goal, :end_date, :image_url, :primary_contact_name, :primary_contact_email, :primary_contact_phone, :approved
 
 end
