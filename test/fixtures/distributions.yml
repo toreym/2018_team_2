@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  external_id: 1
+  external_fund_id: 1
+  external_organization_id: 1
+  fund_id: 1
+  organization_id: 
+  amount: 1
+  effective_date: 2018-03-22
+
+two:
+  external_id: 1
+  external_fund_id: 1
+  external_organization_id: 1
+  fund_id: 1
+  organization_id: 
+  amount: 1
+  effective_date: 2018-03-22

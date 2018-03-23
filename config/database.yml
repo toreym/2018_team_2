@@ -8,24 +8,14 @@ development:
   port: 3306
   pool: 25
 
-test: &test
+test:
   adapter: mysql2
-  database: test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: test
   encoding: utf8
   username: root
   password:
   host: 127.0.0.1
-  port: <%= t_port %>
-<% else %>
-test: &test
-  adapter: mysql2
-  database: test<%= ENV['TEST_ENV_NUMBER'] %>
-  encoding: utf8
-  username: root
-  password:
-  host: 127.0.0.1
-  port: 3306
-<% end %>
+  port: 6379
 
 production:
   adapter: mysql2
