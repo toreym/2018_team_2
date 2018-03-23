@@ -1,7 +1,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: db
+  database: givedsm
   username: root
   password:
   host: 127.0.0.1
@@ -10,7 +10,7 @@ development:
 
 test:
   adapter: mysql2
-  database: test
+  database: givedsmtest
   encoding: utf8
   username: root
   password:
