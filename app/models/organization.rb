@@ -1,11 +1,8 @@
 class Organization < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   has_many :funding_needs
   has_many :distributions
+
+  belongs_to :organization_user
 
   def self.import_row(header, row)
     name = row[header.find_index("Organization Legal Name")] if header.find_index("Organization Legal Name")

@@ -1,14 +1,15 @@
 ActiveAdmin.register FundingNeed, namespace: :myorg do
-  permit_params :name, :description, :website, :image_url
+  permit_params :name, :description, :website, :image_url, :organization_id
 
   config.filters = false
 
-  scope_to association_method: :funding_needs do
-    current_organization
+  scope_to do
+    current_organization_user
   end
 
   form do |f|
     f.inputs 'Program' do
+      f.input :organization
       f.input :name
       f.input :description
       f.input :website
@@ -16,4 +17,10 @@ ActiveAdmin.register FundingNeed, namespace: :myorg do
     end
     f.actions
   end
+
+  # controller do
+  #   def create
+  #
+  #   end
+  # end
 end

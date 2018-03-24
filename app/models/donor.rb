@@ -6,6 +6,7 @@ class Donor < ApplicationRecord
 
   belongs_to :fund, optional: true
   has_many :field_of_interests
+  has_and_belongs_to_many :donor_fund_relations
 
   def new_login_token
     # get a new token. make sure to check for existing tokens.
