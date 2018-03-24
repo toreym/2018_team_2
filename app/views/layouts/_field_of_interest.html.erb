@@ -1,30 +1,25 @@
-<div class="sidebar-sticky">
-  <div class="p-2">
-    1) Select the causes you care about most:
-  </div>
-  <div class="well">
-    <% @combined_interests.each do |interest| %>
-      <div  class="list-group-item" data-interest-id="<%= interest[:id] %>">
-        <% label = if interest[:subcategory].present?
-                     interest[:subcategory]
-                   elsif interest[:category].present?
-                     interest[:category]
-                   else
-                     interest[:name]
-                   end
-        %>
+<div class="well">
+  <% @combined_interests.each do |interest| %>
+    <div  class="list-group-item" data-interest-id="<%= interest[:id] %>">
+      <% label = if interest[:subcategory].present?
+                   interest[:subcategory]
+                 elsif interest[:category].present?
+                   interest[:category]
+                 else
+                   interest[:name]
+                 end
+      %>
 
-        <% if interest[:subcategory].present? %>
-          <span style="padding-left: 15px;">
-            <%=interest[:subcategory] %>
-          </span>
-        <% else %>
-          <span style="font-weight: bold;">
-            <%= interest[:category] %>
-          </span>
-        <% end %>
-        <i class="fas fa-heart heart" style="float: right; <%= 'display:none;' unless interest[:liked] %>" ></i>
-      </div>
-    <% end %>
-  </div>
+      <% if interest[:subcategory].present? %>
+        <span style="padding-left: 15px;">
+          <%=interest[:subcategory] %>
+        </span>
+      <% else %>
+        <span style="font-weight: bold;">
+          <%= interest[:category] %>
+        </span>
+      <% end %>
+      <i class="fas fa-heart heart" style="float: right; <%= 'display:none;' unless interest[:liked] %>" ></i>
+    </div>
+  <% end %>
 </div>
