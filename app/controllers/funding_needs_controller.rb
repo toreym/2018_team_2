@@ -23,7 +23,12 @@ class FundingNeedsController < ApplicationController
 
   def get_funding_needs
     search = params[:search]
-    @funding_needs = FundingNeed.where(:approved => true).where("end_date >= ?", Date.today).order(end_date: :asc)
+    donor_interests = current_donor.field_of_interests.where(:liked => true).map{|interest| interest.interest_id}
+    ids = FundingNeed.joins('join funding_needs_interests on funding_needs.id = funding_needs_interests.funding_need_id').where(:funding_needs_interests => {:interest_id => donor_interests}).where(:approved => true).where("end_date >= ?", Date.today).order(end_date: :asc).distinct.map{|need| need.id}
+    matched_needs = FundingNeed.where(:id => ids)
+    low_prio_needs = FundingNeed.where(:approved => true).where("end_date >= ?", Date.today).where.not(:id => matched_needs.ids).order(end_date: :asc)
+
+    @funding_needs = matched_needs+low_prio_needs
     respond_to do |format|
       format.html {render partial: 'layouts/card'}
     end
