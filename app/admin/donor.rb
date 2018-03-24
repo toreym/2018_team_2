@@ -56,9 +56,9 @@ ActiveAdmin.register Donor do
       d.external_id
     end
     column :email
-
-    actions :defaults => true do |donor|
-      link_to "Sign in", log_in_as_admin_donor_path(donor)
-    end
+    #  need to login w/ magic url, could change possibly later
+    # actions :defaults => true do |donor|
+    #   link_to "Sign in", log_in_as_admin_donor_path(donor)
+    # end
   end
 end
