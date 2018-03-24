@@ -13,10 +13,13 @@ $warm-red: #e03e52;
 $cool-red: #00a3e0;
 $warm-orange: #cb6015;
 $cool-orange: #2dccd3;
-//basics
-body {}
-//brand
 
+//basics
+body{
+  font-family: Calibri;
+}
+
+//brand
 .brand-bar {
   background-color: white;
   height: 130px;
@@ -63,7 +66,7 @@ body {}
   -ms-perspective: 800px;
   perspective: 800px;
   position: relative;
-  max-width: 300px;
+  max-width: 350px;
 }
 
 .flip .card.flipped {
