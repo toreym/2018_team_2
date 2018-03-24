@@ -28,23 +28,66 @@ body{
   height: 20%;
 }
 
+.card-img {
+  width: 100%;
+  height: 100%;
+}
+
 .interest-color {
   background-color: $base-blue;
   color: white;
   margin: 5px;
 }
 
-.interest-color-select{
-  background-color: $co-green;
+.btn-donate, .btn-donate:hover, .btn-donate:active, .btn-donate:visited{
+  background-color: $warm-purple !important;
   color: white;
   margin: 5px;
 }
-//interest buttons
-.like {
-  background-color: $cool-red;
+
+
+//flip cards
+
+.flip-color {
+  background-color: $base-orange;
+  color: white;
+  margin: 5px;
 }
 
-.un-like {
-  background-color: $warm-red;
+.flip {
+  -webkit-perspective: 800;
+perspective: 800;
+
+    position: relative;
+ 
 }
-//flip cards
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
+}
+.flip .card {
+
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+.flip .card .face {
+
+  -webkit-backface-visibility: hidden ;
+    backface-visibility: hidden ;
+  z-index: 2;
+   
+}
+.flip .card .front {
+  position: absolute;
+   width: 100%;
+  z-index: 1;
+
+}
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
+}
+  .inner{margin:0px !important;}
