@@ -15,7 +15,7 @@ ActiveAdmin.register FundingNeed do
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
-      f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item."
+      f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item.", :label => 'Interest', :as => :select, :collection => Interest.order(name: :asc).all.map{|o| [o.name, o.id]}
       f.input :image
     end
     f.actions
