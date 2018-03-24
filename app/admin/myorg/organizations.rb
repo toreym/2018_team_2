@@ -1,5 +1,5 @@
 ActiveAdmin.register Organization, namespace: :myorg do
-  permit_params :name, :website, :ein
+  permit_params :name, :website, :ein, :organization_user_id
 
   menu :label => "My Orgs", :priority => 1
 
