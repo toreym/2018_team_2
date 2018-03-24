@@ -22,9 +22,24 @@
       <%= image_tag("logo.png", :class => "brand-logo navbar-brand col-sm-3 col-md-2 mr-0") %>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <%= link_to "Log out", donor_logout_path, method: :delete %>
-        </li>
+        <% if current_donor %>
+          <% if current_organization_user %>
+            <li class="nav-item text-nowrap">
+              <%= link_to "My Org", "/myorg" %>
+            </li>
+            <li class="nav-item text-nowrap">
+              <%= link_to "Donor Log out", donor_logout_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item text-nowrap">
+              <%= link_to "Log out", donor_logout_path, method: :delete %>
+            </li>
+          <% end %>
+        <% else %>
+          <li class="nav-item text-nowrap">
+            <%= link_to "My Org", "/myorg" %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </header>

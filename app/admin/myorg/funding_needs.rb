@@ -1,5 +1,6 @@
 ActiveAdmin.register FundingNeed, namespace: :myorg do
-  permit_params :name, :description, :website, :image_url, :organization_id, :image, :end_date, :goal, :primary_contact_name, :primary_contact_email, :primary_contact_phone
+  permit_params :name, :description, :website, :image_url, :organization_id, :image, :end_date, :goal,
+                :primary_contact_name, :primary_contact_email, :primary_contact_phone, interest_ids: []
 
   config.filters = false
 
