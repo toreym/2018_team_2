@@ -1,0 +1,114 @@
+/* line 20, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.brand-bar {
+  background-color: #001e60;
+}
+
+/* line 24, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.brand-logo {
+  width: 20%;
+  height: 20%;
+}
+
+/* line 29, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.card-img {
+  max-width: 200px;
+}
+
+/* line 33, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.card-field-header {
+  margin-bottom: 0 !important;
+  padding: 0.5rem;
+}
+
+/* line 38, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.interest-color {
+  background-color: #001e60;
+  color: white;
+  margin: 5px;
+}
+
+/* line 44, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.btn-donate,
+.btn-donate:active,
+.btn-donate:hover,
+.btn-donate:visited {
+  background-color: #672146 !important;
+  color: white;
+  margin: 5px;
+}
+
+/* line 53, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip-color {
+  background-color: #ffb81c;
+  color: white;
+  margin: 5px;
+}
+
+/* line 59, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip {
+  -webkit-perspective: 800;
+  perspective: 800;
+  position: relative;
+  max-width: 300px;
+}
+
+/* line 66, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+/* line 71, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip .card {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+/* line 79, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip .card .face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+/* line 85, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip .card .front {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+/* line 91, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.flip .card .back {
+  -webkit-transform: rotatey(180deg);
+  transform: rotatey(180deg);
+}
+
+/* line 96, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.inner {
+  margin: 0 !important;
+}
+
+/* line 100, /Users/toreymaerz/Dev/givedsm/app/assets/stylesheets/givedsm.scss */
+.heart {
+  color: #e03e52;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
