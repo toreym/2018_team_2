@@ -2,7 +2,7 @@
   <div class="text-center flip p-2">
     <div class="card box-shadow">
       <div class="face front">
-        <div class="card-header">
+        <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
         <div class="card-body">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="face back">
-        <div class="card-header">
+        <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
         <div class="card-body">
@@ -29,10 +29,12 @@
           <a href="" class="pt-2"><%= funding_need.website %></a>
           <h3 class="pt-2"><%= funding_need.goal %></h3>
           <h3 class="pt-2"><%= funding_need.end_date %></h3>
-          <button class="btn" type="button">Grant from Community Foundation Charitable Fund </button>
-          <a class="btn toggle">
-            <h3>Flip <span class="badge badge-secondary badge-pill flip-color justify-content-end"><i class="fas fa-arrow-circle-right"></i></span></h3>
-          </a>
+          <!--<button class="btn" type="button">Grant from Community Foundation Charitable Fund </button>-->
+          <div class="justify-content-end p-2">
+            <a class="btn toggle">
+              <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
+            </a>
+          </div>  
         </div>
       </div>
     </div>
