@@ -57,3 +57,6 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'passgen' # generate random passwords
 
 gem 'cancancan', '~> 2.0'
+gem "figaro" # for adding configuration on Amazon OpsWorks
+gem 'unicorn'
+gem 'roo'
