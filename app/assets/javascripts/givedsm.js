@@ -1,7 +1,6 @@
 function set_listeners(){
     $('.toggle').on('click' ,function(){
         $( event.target ).closest('.card').toggleClass('flipped');
-        alert("toggle");
     });
 
     $('#front').on('click' ,function(){
