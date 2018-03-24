@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324003257) do
+ActiveRecord::Schema.define(version: 20180324010835) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20180324003257) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date"
+    t.date     "end_date",              null: false
     t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
