@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324055009) do
+ActiveRecord::Schema.define(version: 20180324065957) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20180324055009) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date",                            null: false
+    t.date     "end_date"
     t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -132,6 +132,15 @@ ActiveRecord::Schema.define(version: 20180324055009) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "funding_needs_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "funding_need_id"
+    t.integer  "interest_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["funding_need_id"], name: "index_funding_needs_interests_on_funding_need_id", using: :btree
+    t.index ["interest_id"], name: "index_funding_needs_interests_on_interest_id", using: :btree
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -154,6 +163,8 @@ ActiveRecord::Schema.define(version: 20180324055009) do
 
   create_table "organization_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "name"
+    t.string   "external_id"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -186,6 +197,7 @@ ActiveRecord::Schema.define(version: 20180324055009) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "website"
+    t.integer  "organization_user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
