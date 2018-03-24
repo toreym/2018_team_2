@@ -9,6 +9,19 @@ ActiveAdmin.register FileUpload do
     f.actions
   end
 
+  show do
+    attributes_table do
+      rows :upload_type, :created_at, :status
+    end
+  end
+
+  index do
+    column :upload_type
+    column :created_at
+    column :status
+    actions
+  end
+
   controller do
 
     def create
