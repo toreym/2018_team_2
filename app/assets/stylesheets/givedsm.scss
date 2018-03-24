@@ -1,18 +1,8 @@
 //theme colors
-$base-blue: #001e60;
-$base-green: #84bd00;
-$base-orange: #ffb81c;
-$co-blue: #898d8d;
-$co-green: #40BD00;
-$co-orange: #ed8b00;
-$warm-blue: #401cd6;
-$cool-blue: #005f83;
-$warm-purple: #672146;
-$cool-purple: #407ec9;
+$base-purple: #2c2866;
+$base-green: #97ca3d;
 $warm-red: #e03e52;
-$cool-red: #00a3e0;
-$warm-orange: #cb6015;
-$cool-orange: #2dccd3;
+$cool-purple: #407ec9;
 
 //basics
 body{
@@ -31,6 +21,11 @@ body{
   height: 80px;
 }
 
+
+.brand-link a{
+  color: $base-green;
+}
+
 .card-image-section {
   img {
     width: 100%;
@@ -45,10 +40,12 @@ body{
 .card-field-header {
   margin-bottom: 0 !important;
   padding: 0.5rem;
+  background-color: $base-purple; 
+  color: white;
 }
 
 .interest-color {
-  background-color: $base-blue;
+  background-color: $base-purple;
   color: white;
   margin: 5px;
 }
@@ -57,13 +54,13 @@ body{
 .btn-donate:active,
 .btn-donate:hover,
 .btn-donate:visited {
-  background-color: $warm-purple !important;
-  color: white;
+  background-color: $base-green !important;
+  color: black;
   margin: 5px;
 }
 //flip cards
 .flip-color {
-  background-color: $base-orange;
+  //background-color: $base-orange;
   color: white;
   margin: 5px;
 }
