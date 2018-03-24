@@ -1,5 +1,3 @@
-
-
 function set_funding_needs_listeners(){
     toggles = $('.card-container');
 
@@ -59,6 +57,14 @@ $(function () {
     $('#back').on('click' ,function(){
         $('.card').removeClass('flipped');
     });
+    $('#interest-search').on('keyup',
+        $.debounce(250, false, function(){
+            $.get('/get_funding_needs?search='+$(this).val(), function(data){
+                $('#interestContainer').html(data);
+                set_funding_needs_listeners();
+            });
+        })
+    );
 
   $('.list-group.checked-list-box .list-group-item').each(function () {
 

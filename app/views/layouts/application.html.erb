@@ -27,7 +27,7 @@
     <nav class="navbar brand-bar sticky-top flex-md-nowrap p-1">
       <%= image_tag("Givedsmheader2.png", :class => "brand-logo navbar-brand mr-0") %>
       <% if current_donor %>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <input id="interest-search" class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <% end %>
       <ul class="navbar-nav px-3">
         <% if current_donor %>
