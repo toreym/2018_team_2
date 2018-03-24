@@ -1,4 +1,6 @@
-function set_listeners(){
+
+
+function set_funding_needs_listeners(){
     $('.toggle').on('click' ,function(){
         $( event.target ).closest('.card').toggleClass('flipped');
     });
@@ -11,15 +13,34 @@ function set_listeners(){
         $( event.target ).closest('.card').removeClass('flipped');
     });
 }
+function set_field_of_interest_listeners(){
+    $('[data-interest-id]').each(function(){
+        elem = $(this);
+        elem.on('click' , function(){
+            $.post('/update_user_field_of_interest', function(data){
+                $('#preferenceContainer').html(data);
+                set_field_of_interest_listeners();
+            });
+        });
+    });
+}
 
 $(function () {
-    set_listeners();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    set_funding_needs_listeners();
+    set_field_of_interest_listeners();
     $.get('/get_funding_needs', function(data){
         $('#interestContainer').html(data);
-        set_listeners();
+        set_funding_needs_listeners();
     });
     $.get('/get_user_field_of_interests', function(data){
         $('#preferenceContainer').html(data);
+        set_field_of_interest_listeners();
     });
 
     $('.toggle').on('click' ,function(){

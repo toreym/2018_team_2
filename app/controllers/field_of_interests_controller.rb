@@ -12,13 +12,21 @@ class FieldOfInterestsController < ApplicationController
          name: i.name,
          category: i.category,
          subcategory: i.subcategory,
-         liked: user_interest_ids.include?(i.id)
+         liked: user_interest_ids.include?(i.id),
+         id: i.id
        })
      end
 
      respond_to do |format|
        format.html {render partial: 'layouts/field_of_interest'}
      end
+   end
+
+   def update_user_field_of_interest
+     Rails.logger.debug
+
+     #TODO: need to update funding needs too
+     get_user_field_of_interests
    end
 
    private

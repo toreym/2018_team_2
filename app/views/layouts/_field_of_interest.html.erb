@@ -4,8 +4,16 @@
   </div>
   <div class="well" style="max-height: 300px;overflow: auto;">
     <% @combined_interests.each do |interest| %>
-      <div  class="list-group-item">
-        <%= interest[:subcategory] or interest[:category] or interest[:name] %>
+      <div  class="list-group-item" data-interest-id="<%= interest[:id] %>">
+        <% label = if interest[:subcategory].present?
+                     interest[:subcategory]
+                   elsif interest[:category].present?
+                     interest[:category]
+                   else
+                     interest[:name]
+                   end
+        %>
+        <%= label %>
       </div>
     <% end %>
   </div>

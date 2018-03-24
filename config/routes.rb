@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'get_user_field_of_interests' => 'field_of_interests#get_user_field_of_interests', as: 'get_user_field_of_interests'
 
+  post 'update_user_field_of_interest' => 'field_of_interests#update_user_field_of_interest', as: 'update_user_field_of_interest'
+
   get 'donor/login/:token' => 'donor_sessions#create', as: 'donor_login'
   delete 'donor/logout' => 'donor_sessions#destroy', as: 'donor_logout'
 
