@@ -3,8 +3,19 @@ class Organization < ApplicationRecord
   has_many :distributions
 
   belongs_to :organization_user
-
+  
+  def self.where_not_valid_organization_upload(header)
+    return !(header.find_index("Organization Legal Name") &&
+             header.find_index("Party ID") &&
+             header.find_index("Tax ID") &&
+             header.find_index("Email"))
+  end
+  
   def self.import_row(header, row)
+    if where_not_valid_organization_upload(header)
+      raise ArgumentError.new('Invalid data for this Organization upload type.')
+    end
+
     name = row[header.find_index("Organization Legal Name")] if header.find_index("Organization Legal Name")
     external_id = row[header.find_index("Party ID")] if header.find_index("Party ID")
     ein = row[header.find_index("Tax ID")] if header.find_index("Tax ID")
