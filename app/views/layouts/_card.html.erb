@@ -11,11 +11,12 @@
           <% else %>
             <img class="card-img" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <% end %>
-          <h3 class="pt-2"> <%= funding_need.name %> </h3>
-          <h3 class="">Cause Focus:
-            <span class="badge badge-pill interest-color">Education</span>
-            <span class="badge badge-pill interest-color">Youth</span>
-          </h3>
+          <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
+          <h4 class="">Cause Focus:
+            <% funding_need.interests.each do |fieldinterest| %>
+              <span class="badge badge-pill interest-color"><%= fieldinterest.name %></span>
+            <% end %>
+          </h4>
         </div>
       </div>
       <div class="face back">
@@ -24,10 +25,10 @@
         </div>
         <div class="card-body">
           <h3 class="pt-2"><%= funding_need.name %></h3>
-          <p class="pt-2"> <%= funding_need.description %></p>
-          <a href="" class="pt-2"><%= funding_need.website %></a>
-          <h3 class="pt-2"><%= number_to_currency funding_need.goal %></h3>
-          <h3 class="pt-2"><%= funding_need.end_date %></h3>
+          <p class="pt-2"> <%=h truncate(funding_need.description, :length => 350) %></p>
+          <h3><a href="" class="pt-2"><%= funding_need.website %></a></h3>
+          <h3 class="pt-2">Funding Goal: <%= number_to_currency funding_need.goal %></h3>
+          <h4 class="pt-2">Funding Deadline: <%= funding_need.end_date.strftime("%B %e, %Y") %></h4>
           <div class="justify-content-end p-2">
             <a class="btn toggle">
               <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
