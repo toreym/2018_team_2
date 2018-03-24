@@ -8,10 +8,6 @@ class Organization < ApplicationRecord
   has_many :distributions
 
   def self.import_row(header, row)
-    {
-        :name => header
-    }
-    Rails.logger.debug
     name = row[header.find_index("Organization Legal Name")] if header.find_index("Organization Legal Name")
     external_id = row[header.find_index("Party ID")] if header.find_index("Party ID")
     ein = row[header.find_index("Tax ID")] if header.find_index("Tax ID")
