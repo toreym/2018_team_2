@@ -5,12 +5,14 @@
         <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
-        <div class="card-body toggle">
+        <div class="card-image-section">
           <% if Rails.env.production? %>
-            <%= image_tag funding_need.image.url(:medium), :class => "card-img" %>
+              <%= image_tag funding_need.image.url(:medium) %>
           <% else %>
-            <img class="card-img" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
+              <img src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <% end %>
+        </div>
+        <div class="card-body toggle">
           <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
           <h4 class="">Cause Focus:
             <% funding_need.interests.limit(2).each do |interest| %>
