@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@givedsm.org'
+  default from: 'jones@desmoinesfoundation.org'
   layout 'mailer'
 end

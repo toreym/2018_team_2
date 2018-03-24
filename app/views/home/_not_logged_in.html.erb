@@ -1,2 +1,12 @@
-Please click on the link you received in your email to login.
-[we can enhance this later to request a link by email]
+
+
+<h3 style="margin-top: 20px">Please enter your email address to login.</h3>
+<%= form_tag(donor_new_session_path, method: "post") do %>
+
+  <%= text_field_tag :email %>
+  <input type="submit" class="btn-donate">
+<% end %>
+
+<% if notice %>
+    <h4><%= notice %></h4>
+<% end %>
