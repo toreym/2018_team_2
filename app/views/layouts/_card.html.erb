@@ -1,9 +1,9 @@
 <% @funding_needs.each do |funding_need| %>
-  <div class="text-center flip">
+  <div class="text-center flip p-2">
     <div class="card box-shadow">
       <div class="face front">
         <div class="card-header">
-          <h2 class=""><%= funding_need.organization.name %></h2>
+          <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
         <div class="card-body">
           <img class="card-img well" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
@@ -21,7 +21,7 @@
       </div>
       <div class="face back">
         <div class="card-header">
-          <h2 class=""><%= funding_need.organization.name %></h2>
+          <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
         <div class="card-body">
           <h3 class="pt-2"><%= funding_need.name %></h3>

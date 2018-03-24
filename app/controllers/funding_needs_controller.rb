@@ -24,8 +24,9 @@ class FundingNeedsController < ApplicationController
   def get_funding_needs
     search = params[:search]
     @funding_needs = FundingNeed.where(:approved => true).where("end_date >= ?", Date.today).order(end_date: :asc)
-
-    render_partial 'layouts/card'
+    respond_to do |format|
+      format.html {render partial: 'layouts/card'}
+    end
   end
 
 end
