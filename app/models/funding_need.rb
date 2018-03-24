@@ -24,8 +24,9 @@ class FundingNeed < ApplicationRecord
   
   def get_web_link
     unless self.website.starts_with? "http://", "https://"
-    	"http://#{self.website}"
-	end
+    	return "http://#{self.website}"
+    end
+    self.website
   end
 
   has_attached_file :image,
