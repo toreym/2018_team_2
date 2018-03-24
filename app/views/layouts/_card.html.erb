@@ -14,10 +14,9 @@
         </div>
         <div class="card-body toggle">
           <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
-          <h4 class="">Cause Focus:
-            <% funding_need.interests.limit(2).each do |interest| %>
-              <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
-            <% end %>
+          <% funding_need.interests.limit(5).each do |interest| %>
+            <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
+          <% end %>
           </h4>
         </div>
       </div>
