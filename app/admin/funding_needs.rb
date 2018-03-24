@@ -6,7 +6,7 @@ ActiveAdmin.register FundingNeed do
     f.inputs 'FundingNeed' do
       f.input :approved
       f.input :name
-      f.input :organization_id
+      f.input :organization, include_blank: false
       f.input :description
       f.input :website
       f.input :goal
