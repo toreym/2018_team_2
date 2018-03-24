@@ -1,4 +1,16 @@
 $(function () {
+    $('.toggle').on('click' ,function(){
+        $('.card').toggleClass('flipped');
+    });
+
+    $('#front').on('click' ,function(){
+        $('.card').addClass('flipped');
+    });
+
+    $('#back').on('click' ,function(){
+        $('.card').removeClass('flipped');
+    });
+
   $('.list-group.checked-list-box .list-group-item').each(function () {
 
     // Settings
@@ -76,3 +88,4 @@ $(function () {
     $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
   });
 });
+
