@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324065957) do
+ActiveRecord::Schema.define(version: 20180324171401) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -119,15 +119,15 @@ ActiveRecord::Schema.define(version: 20180324065957) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date",                            null: false
+    t.date     "end_date",                                            null: false
     t.string   "image_url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "raised"
     t.string   "primary_contact_name"
     t.string   "primary_contact_email"
     t.string   "primary_contact_phone"
-    t.boolean  "approved"
+    t.boolean  "approved",                            default: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -163,8 +163,6 @@ ActiveRecord::Schema.define(version: 20180324065957) do
 
   create_table "organization_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
-    t.string   "name"
-    t.string   "external_id"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -197,7 +195,6 @@ ActiveRecord::Schema.define(version: 20180324065957) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "website"
-    t.integer  "organization_user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

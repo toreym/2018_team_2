@@ -4,6 +4,7 @@ ActiveAdmin.register FundingNeed do
 
   form do |f|
     f.inputs 'FundingNeed' do
+      f.input :approved
       f.input :name
       f.input :organization_id
       f.input :description
@@ -13,7 +14,6 @@ ActiveAdmin.register FundingNeed do
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
-      f.input :approved
       f.input :interests, hint: "Hold CTRL (CMD in OSX) and click to select more than one item."
       f.input :image
     end
@@ -30,13 +30,21 @@ ActiveAdmin.register FundingNeed do
   end
 
   index do
+    column :approved
     column :name
     column :organization
-    column :approved
-    column :primary_contact_email
     column :primary_contact_name
+    column :primary_contact_email
     column :primary_contact_phone
+    column :end_date
     column :interests
     actions
   end
+
+    filter :approved
+    filter :name
+    filter :organization
+    filter :primary_contact_email
+    filter :interests
+    filter :end_date
 end
