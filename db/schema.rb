@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324014614) do
+ActiveRecord::Schema.define(version: 20180324042152) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(version: 20180324014614) do
   create_table "donor_fund_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "donor_id"
     t.integer  "fund_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "external_fund_id"
     t.index ["donor_id"], name: "index_donor_fund_relations_on_donor_id", using: :btree
     t.index ["fund_id"], name: "index_donor_fund_relations_on_fund_id", using: :btree
   end
@@ -97,8 +98,10 @@ ActiveRecord::Schema.define(version: 20180324014614) do
     t.integer  "interest_id"
     t.string   "type"
     t.boolean  "liked"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "donor_id"
+    t.integer  "organization_id"
   end
 
   create_table "file_uploads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -116,7 +119,7 @@ ActiveRecord::Schema.define(version: 20180324014614) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date"
+    t.date     "end_date",                            null: false
     t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -125,6 +128,10 @@ ActiveRecord::Schema.define(version: 20180324014614) do
     t.string   "primary_contact_email"
     t.string   "primary_contact_phone"
     t.boolean  "approved"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -147,8 +154,6 @@ ActiveRecord::Schema.define(version: 20180324014614) do
 
   create_table "organization_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
-    t.string   "name"
-    t.string   "external_id"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -181,7 +186,10 @@ ActiveRecord::Schema.define(version: 20180324014614) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "website"
-    t.integer  "organization_user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_organizations_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true, using: :btree
   end

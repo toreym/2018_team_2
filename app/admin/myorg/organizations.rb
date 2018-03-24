@@ -9,6 +9,7 @@ ActiveAdmin.register Organization, namespace: :myorg do
       f.input :ein
       f.input :website
       f.input :organization_user
+      f.input :image
     end
     f.actions
   end

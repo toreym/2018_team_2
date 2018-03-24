@@ -1,0 +1,12 @@
+<div class="sidebar-sticky">
+  <div class="p-2">
+    Causes I care about...
+  </div>
+  <div class="well" style="max-height: 300px;overflow: auto;">
+    <% @combined_interests.each do |interest| %>
+      <div  class="list-group-item">
+        <%= interest[:subcategory] or interest[:category] or interest[:name] %>
+      </div>
+    <% end %>
+  </div>
+</div>

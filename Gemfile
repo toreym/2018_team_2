@@ -62,3 +62,5 @@ gem 'passgen' # generate random passwords
 
 gem 'cancancan', '~> 2.0'
 gem 'roo'
+gem "paperclip", "~> 6.0.0" # image upload to s3
+gem 'aws-sdk-s3' # store images on s3
