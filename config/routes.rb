@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'donor_sessions/create'
-
-  get 'donor_sessions/destroy'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :organizations, OrganizationLogin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :donors
-  devise_for :organizations
 
   root to: "home#index"
 

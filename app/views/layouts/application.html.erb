@@ -4,13 +4,34 @@
     <title>Community Foundation</title>
     <%= csrf_meta_tags %>
 
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+
+
+<body>
+  <header>
+    <nav class="navbar brand-bar sticky-top flex-md-nowrap p-1">
+      <%= image_tag("logo.png", :class => "brand-logo navbar-brand col-sm-3 col-md-2 mr-0") %>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <%= link_to "Log out", donor_logout_path, method: :delete %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container-fluid">
     <%= yield %>
-  </body>
+  </div>
+</body>
+
 </html>
