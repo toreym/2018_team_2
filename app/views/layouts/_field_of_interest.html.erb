@@ -14,7 +14,7 @@
                    end
         %>
         <%= label %>
-        <%= interest[:liked] %>
+        <i class="fas fa-heart heart" style="float: right; <%= 'display:none;' unless interest[:liked] %>" ></i>
       </div>
     <% end %>
   </div>

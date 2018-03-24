@@ -22,6 +22,7 @@ class FundingNeedsController < ApplicationController
   end
 
   def get_funding_needs
+    #TODO: do group by id and select count(*), weight by count(*) on matched_needs
     search = params[:search]
     donor_interests = current_donor.field_of_interests.where(:liked => true).map{|interest| interest.interest_id}
     ids = FundingNeed.joins('join funding_needs_interests on funding_needs.id = funding_needs_interests.funding_need_id').where(:funding_needs_interests => {:interest_id => donor_interests}).where(:approved => true).where("end_date >= ?", Date.today).order(end_date: :asc).distinct.map{|need| need.id}
