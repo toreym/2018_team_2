@@ -1,11 +1,13 @@
 class OrganizationAbility
   include CanCan::Ability
 
-  def initialize(org)
+  def initialize(org_user)
 
-    can :manage, Organization, :id => org.id
+    can [:update, :read], Organization, :organization_user_id => org_user.id
 
-    can [:new, :create, :read], FundingNeed, :organization_id => org.id
+    can :manage, OrganizationUser, :id => org_user.id
+
+    can [:new, :create, :read, :destroy, :update], FundingNeed, :organization_id => org_user.organizations.ids.append(nil)
 
   end
 end

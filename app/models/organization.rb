@@ -1,19 +1,16 @@
 class Organization < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   has_many :funding_needs
   has_many :distributions
 
+  belongs_to :organization_user
+  
   def self.where_not_valid_organization_upload(header)
     return !(header.find_index("Organization Legal Name") &&
              header.find_index("Party ID") &&
              header.find_index("Tax ID") &&
              header.find_index("Email"))
   end
-
+  
   def self.import_row(header, row)
     if where_not_valid_organization_upload(header)
       raise ArgumentError.new('Invalid data for this Organization upload type.')

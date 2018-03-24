@@ -1,4 +1,8 @@
 $(function () {
+    $.get('/get_funding_needs', function(data){
+        $('#interestContainer').html(data);
+    });
+
     $('.toggle').on('click' ,function(){
         $('.card').toggleClass('flipped');
     });

@@ -2,6 +2,7 @@ class Fund < ApplicationRecord
 
   has_many :donors
   has_many :distributions
+  has_and_belongs_to_many :donor_fund_relations
 
   def self.where_not_valid_fund_upload(header)
     !(header.find_index("Account ID") && header.find_index("Spendable Balance") && header.find_index("Account Name"))
@@ -26,4 +27,5 @@ class Fund < ApplicationRecord
       Fund.create(:name => name, :external_id => external_id, :spendable_balance => spendable_balance)
     end
   end
+
 end

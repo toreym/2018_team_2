@@ -25,9 +25,7 @@ class FundingNeedsController < ApplicationController
     search = params[:search]
     @funding_needs = FundingNeed.where(:approved => true).where("end_date >= ?", Date.today).order(end_date: :asc)
 
-    respond_to do |format|
-      format.json { render json: @funding_needs }
-    end
+    render_partial 'layouts/card'
   end
 
 end
