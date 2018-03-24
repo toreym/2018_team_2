@@ -16,7 +16,6 @@ ActiveAdmin.register FundingNeed, namespace: :myorg do
       f.input :website
       f.input :image
       f.input :goal
-      f.input :end_date
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone

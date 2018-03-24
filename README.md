@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+>Public URI = http://givedsm.org/
 
-Things you may want to cover:
+This website represents **The Community Foundation of Greater Des Moines**. Providing donors with a friendly way to select charitable organizations.
 
+Users will navigate to this site by genric link on Stellar's website. Then by magic link email for their profile.
 ### Ruby version
-2.2.3
-* System dependencies
+**`2.2.3`**
+#### System dependencies
 
-* Configuration
+- Ruby
+- MySQL Server
+- Node.js
+- AWS 
 
-* Database creation
+####  How To Run
+##### Command line commands
+* Load database `rake db:migrate`
+* Download/Build gems `bundle install`
+* Run server from cmd `rails s`
 
-#### Database initialization
-run rake db:migrate to load the database schema.
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deployment Instructions

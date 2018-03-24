@@ -4,7 +4,7 @@ ActiveAdmin.register FileUpload do
   form do |f|
     f.inputs 'FileUpload' do
       f.input :file, as: :file
-      f.input :upload_type, :label => 'Import Type', :as => :select, :collection => FileUpload.available_types.map{|u| ["#{u.name}", "#{u.name}"]}, :selected => FileUpload.available_types.first.name
+      f.input :upload_type, :label => 'Import Type', :as => :select, :collection => FileUpload.available_types.map{|u| ["#{u.name}", "#{u.name}"]}, include_blank: false
     end
     f.actions
   end

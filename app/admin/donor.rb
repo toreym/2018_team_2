@@ -5,7 +5,7 @@ ActiveAdmin.register Donor do
     f.inputs 'Donor' do
       f.input :name
       f.input :email
-      f.input :funds
+      f.input :funds, hint: "Hold CTRL and click to select more than one item."
     end
     f.actions
   end

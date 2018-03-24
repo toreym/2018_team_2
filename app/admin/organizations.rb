@@ -5,7 +5,7 @@ ActiveAdmin.register Organization do
     f.inputs 'Organization' do
       f.input :name
       f.input :ein
-      f.input :organization_user
+      f.input :organization_user, :label => 'Organization User', :as => :select, :collection => OrganizationUser.all, include_blank: false
       f.input :image
     end
     f.actions

@@ -86,4 +86,13 @@ Rails.application.configure do
 
   #
   config.action_mailer.default_url_options = { :host => "www.givedsm.org" }
+  config.action_mailer.smtp_settings = {
+      :address   => "email-smtp.us-east-1.amazonaws.com",
+      :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => ENV["SMTP_USER"],
+      :password  => ENV["SMTP_PASSWORD"], # SMTP password is any valid API key
+      :authentication => 'login', # Mandrill supports 'plain' or 'login'
+      :domain => 'givedsm.org', # your domain to identify your server when connecting
+  }
 end
