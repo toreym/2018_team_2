@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20180324065957) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date"
+    t.date     "end_date",                            null: false
     t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
