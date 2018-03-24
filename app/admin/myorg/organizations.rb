@@ -1,5 +1,14 @@
-# ActiveAdmin.register Organization, namespace: :myorg do
-#   permit_params :name, :email, :ein
-#
-#   menu :label => "My Org", :priority => 1
-# end
+ActiveAdmin.register Organization, namespace: :myorg do
+  permit_params :name, :website, :ein
+
+  menu :label => "My Orgs", :priority => 1
+
+  form do |f|
+    f.inputs 'Organization' do
+      f.input :name
+      f.input :ein
+      f.input :website
+    end
+    f.actions
+  end
+end

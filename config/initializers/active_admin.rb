@@ -31,9 +31,9 @@ ActiveAdmin.setup do |config|
     config.namespace :myorg do |enterprise|
 
       enterprise.site_title = "Community Foundation"
-      enterprise.authentication_method = :authenticate_organization!
-      enterprise.current_user_method = :current_organization
-      enterprise.logout_link_path = :destroy_organization_session_path
+      enterprise.authentication_method = :authenticate_organization_user!
+      enterprise.current_user_method = :current_organization_user
+      enterprise.logout_link_path = :destroy_organization_user_session_path
       enterprise.comments = false
       enterprise.batch_actions = false
       enterprise.authorization_adapter = ActiveAdmin::CanCanAdapter
@@ -47,7 +47,7 @@ ActiveAdmin.setup do |config|
         enterprise.add_current_user_to_menu  menu
         menu.add({id: 'change_password', priority: 10, html_options: {},
                   label: "Change password",
-                  url:   -> { edit_organization_registration_path },
+                  url:   -> { edit_organization_user_registration_path },
                   if:    :current_active_admin_user?})
         enterprise.add_logout_button_to_menu menu
       end

@@ -2,6 +2,8 @@ class Organization < ApplicationRecord
   has_many :funding_needs
   has_many :distributions
 
+  belongs_to :organization_user
+
   def self.import_row(header, row)
     {
         :name => header
