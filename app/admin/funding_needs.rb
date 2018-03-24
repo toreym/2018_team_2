@@ -10,7 +10,6 @@ ActiveAdmin.register FundingNeed do
       f.input :website
       f.input :goal
       f.input :end_date
-      f.input :image_url, as: :file
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
@@ -20,4 +19,22 @@ ActiveAdmin.register FundingNeed do
     f.actions
   end
 
+  show do
+    attributes_table do
+      row "Image" do |f|
+        image_tag(f.image.url(:thumb))
+      end
+      rows :name, :organization, :approved, :primary_contact_email, :primary_contact_name, :primary_contact_phone, :description
+    end
+  end
+
+  index do
+    column :name
+    column :organization
+    column :approved
+    column :primary_contact_email
+    column :primary_contact_name
+    column :primary_contact_phone
+    actions
+  end
 end

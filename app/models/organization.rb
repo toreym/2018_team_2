@@ -32,10 +32,19 @@ class Organization < ApplicationRecord
     return if external_id.nil?
     organization = Organization.find_by(:external_id => external_id)
 
-    if organization
-      organization.update_attributes(:email => email, :ein => ein, :name => name)
+    org_user = OrganizationUser.find_by(:email => email)
+    if org_user.nil?
+      pass = Passgen::generate(:length => 14)
+      org_user = OrganizationUser.create(email: email, password: pass, password_confirmation: pass, name: email)
     else
-      Organization.create(:email => email, :ein => ein, :name => name, :external_id => external_id, :password => SecureRandom.base64)
+      # if we are going to update the org_user. put it here...
+      # org_user.update_attributes(...)
+    end
+
+    if organization
+      organization.update_attributes(:email => email, :ein => ein, :name => name, organization_user_id: org_user.id)
+    else
+      Organization.create(:email => email, :ein => ein, :name => name, :external_id => external_id, organization_user_id: org_user.id)
     end
   end
 end
