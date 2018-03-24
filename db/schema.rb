@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324055009) do
+ActiveRecord::Schema.define(version: 20180324171401) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -119,19 +119,28 @@ ActiveRecord::Schema.define(version: 20180324055009) do
     t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date",                            null: false
+    t.date     "end_date",                                            null: false
     t.string   "image_url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "raised"
     t.string   "primary_contact_name"
     t.string   "primary_contact_email"
     t.string   "primary_contact_phone"
-    t.boolean  "approved"
+    t.boolean  "approved",                            default: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "funding_needs_interests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "funding_need_id"
+    t.integer  "interest_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["funding_need_id"], name: "index_funding_needs_interests_on_funding_need_id", using: :btree
+    t.index ["interest_id"], name: "index_funding_needs_interests_on_interest_id", using: :btree
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

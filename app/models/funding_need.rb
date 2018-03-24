@@ -1,6 +1,6 @@
 class FundingNeed < ApplicationRecord
   belongs_to :organization
-  has_many :field_of_interests
+  has_and_belongs_to_many :interests, :join_table => :funding_needs_interests
 
   validates_presence_of :end_date
 
