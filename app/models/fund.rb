@@ -4,7 +4,7 @@ class Fund < ApplicationRecord
   has_many :distributions
 
   def self.where_not_valid_fund_upload(header)
-    !(header.find_index("Account ID") && header.find_index("Spendable Balance"))
+    !(header.find_index("Account ID") && header.find_index("Spendable Balance") && header.find_index("Account Name"))
   end
 
   def self.import_row(header, row)
