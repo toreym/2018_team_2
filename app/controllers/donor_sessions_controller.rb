@@ -22,4 +22,19 @@ class DonorSessionsController < ApplicationController
     self.current_donor = nil
     redirect_to root_path, notice: 'Sucesfully signed-out'
   end
+
+  def request_new_session
+    # make sure the email address exists
+    @donor = Donor.find_by email: params[:email]
+    if @donor
+      @donor.new_login_token
+
+      # send them an email with the new link
+      DonorRequestSessionMailer.request_session(@donor).deliver_now
+
+      redirect_to root_path, notice: "Check your email. We've sent you a link to login."
+    else
+      redirect_to root_path, notice: "We do not see an account for you. Please contact us to register as a donor."
+    end
+  end
 end

@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get 'donor/login/:token' => 'donor_sessions#create', as: 'donor_login'
   delete 'donor/logout' => 'donor_sessions#destroy', as: 'donor_logout'
 
+  post 'donor/request_session' => 'donor_sessions#request_new_session', as: 'donor_new_session'
+
 end
