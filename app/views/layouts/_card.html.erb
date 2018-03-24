@@ -14,7 +14,7 @@
           <h3 class="pt-2"> <%= funding_need.name %> </h3>
           <h3 class="">Cause Focus:
             <% funding_need.interests.limit(2).each do |interest| %>
-              <span class="badge badge-pill interest-color"><%= interest.name %></span>
+              <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
             <% end %>
           </h3>
         </div>
