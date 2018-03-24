@@ -13,12 +13,26 @@ function set_listeners(){
 }
 
 $(function () {
-  set_listeners();
+    set_listeners();
     $.get('/get_funding_needs', function(data){
         $('#interestContainer').html(data);
         set_listeners();
     });
+    $.get('/get_user_field_of_interests', function(data){
+        $('#preferenceContainer').html(data);
+    });
 
+    $('.toggle').on('click' ,function(){
+        $('.card').toggleClass('flipped');
+    });
+
+    $('#front').on('click' ,function(){
+        $('.card').addClass('flipped');
+    });
+
+    $('#back').on('click' ,function(){
+        $('.card').removeClass('flipped');
+    });
 
   $('.list-group.checked-list-box .list-group-item').each(function () {
 
