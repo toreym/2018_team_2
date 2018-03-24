@@ -1,15 +1,15 @@
 
 
 function set_funding_needs_listeners(){
-    $('.toggle').on('click' ,function(){
+    $('.toggle').on('click' ,function(event){
         $( event.target ).closest('.card').toggleClass('flipped');
     });
 
-    $('#front').on('click' ,function(){
+    $('#front').on('click' ,function(event){
         $( event.target ).closest('.card').addClass('flipped');
     });
 
-    $('#back').on('click' ,function(){
+    $('#back').on('click' ,function(event){
         $( event.target ).closest('.card').removeClass('flipped');
     });
 }
@@ -138,4 +138,3 @@ $(function () {
     $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
   });
 });
-

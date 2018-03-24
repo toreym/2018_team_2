@@ -163,6 +163,8 @@ ActiveRecord::Schema.define(version: 20180324171401) do
 
   create_table "organization_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "name"
+    t.string   "external_id"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 20180324171401) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "website"
+    t.integer  "organization_user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

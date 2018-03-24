@@ -13,8 +13,9 @@
           <% end %>
           <h3 class="pt-2"> <%= funding_need.name %> </h3>
           <h3 class="">Cause Focus:
-            <span class="badge badge-pill interest-color">Education</span>
-            <span class="badge badge-pill interest-color">Youth</span>
+            <% funding_need.interests.limit(2).each do |interest| %>
+              <span class="badge badge-pill interest-color"><%= interest.name %></span>
+            <% end %>
           </h3>
         </div>
       </div>
