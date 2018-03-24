@@ -4,8 +4,8 @@ class Donor < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :fund, optional: true
   has_many :field_of_interests
+  has_and_belongs_to_many :funds, :join_table => :donor_fund_relations
 
   def new_login_token
     # get a new token. make sure to check for existing tokens.

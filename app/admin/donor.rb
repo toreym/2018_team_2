@@ -1,10 +1,11 @@
 ActiveAdmin.register Donor do
-  permit_params :name, :email
+  permit_params :name, :email, fund_ids: []
 
   form do |f|
     f.inputs 'Donor' do
       f.input :name
       f.input :email
+      f.input :funds
     end
     f.actions
   end
@@ -45,6 +46,7 @@ ActiveAdmin.register Donor do
           ""
         end
       end
+      row :funds
     end
   end
 

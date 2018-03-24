@@ -21,7 +21,14 @@ ActiveAdmin.register FileUpload do
       @file_upload[:upload_type] = attrs[:upload_type]
 
       if @file_upload.save
-        @file_upload.import
+        begin
+          @file_upload.import
+        rescue ArgumentError => e
+          @file_upload.update_attributes(status:"Error")
+          redirect_to(admin_file_upload_path(@file_upload), alert: e.message) and return
+        end
+
+        @file_upload.update_attributes(status:"Success")
         redirect_to admin_file_upload_path(@file_upload)
       else
         render :new
