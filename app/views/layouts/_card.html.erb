@@ -7,7 +7,7 @@
         </div>
         <div class="card-body toggle">
           <% if Rails.env.production? %>
-            <%= image_tag funding_need.image.url(:medium) %>
+            <%= image_tag funding_need.image.url(:medium), :class => "card-img" %>
           <% else %>
             <img class="card-img" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <% end %>
