@@ -30,9 +30,6 @@ ActiveAdmin.register FundingNeed, namespace: :myorg do
     f.actions
   end
 
-  # controller do
-  #   def create
-  #
-  #   end
-  # end
+  # This is what Celia had to say ---> e
+
 end
