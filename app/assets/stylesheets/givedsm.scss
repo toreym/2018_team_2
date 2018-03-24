@@ -18,12 +18,14 @@ body {}
 //brand
 
 .brand-bar {
-  background-color: $base-blue;
+  background-color: white;
+  height: 130px;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .brand-logo {
-  width: 20%;
-  height: 20%;
+  width: auto;
+  height: 80px;
 }
 
 .card-img {
@@ -99,4 +101,10 @@ body {}
 
 .heart {
   color: $warm-red;
+}
+
+.list-group-item:hover {
+  background-color: $cool-purple;
+  color: white;
+  cursor: pointer;
 }

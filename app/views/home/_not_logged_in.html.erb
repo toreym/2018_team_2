@@ -1,12 +1,25 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Welcome to GIVEdsm</h1>
+    <p class="lead font-weight-normal">We help connect donors with causes they care about.<br>GIVEdsm provides
+      information on timely funding needs of charitable organizations impacting Greater Des Moines.</p>
+
+    <p class="lead font-weight-normal">Log in to discover opportunities to be Better Together.</p>
+
+    <h3 style="margin-top: 20px">Enter your email to request access:</h3>
+    <%= form_tag(donor_new_session_path, method: "post") do %>
 
 
-<h3 style="margin-top: 20px">Please enter your email address to login.</h3>
-<%= form_tag(donor_new_session_path, method: "post") do %>
+        <%= text_field_tag :email, "", class: "form-control" %>
+        <input type="submit" class="btn btn-primary" value="Send">
+    <% end %>
 
-  <%= text_field_tag :email %>
-  <input type="submit" class="btn-donate">
-<% end %>
+    <% if notice %>
+        <h4><%= notice %></h4>
+    <% end %>
+    <p></p>
+    <p class="lead font-weight-normal">For assistance email us (<a href="mailto:biedenfeld@desmoinesfoundation.org">biedenfeld@desmoinesfoundation.org</a>) or call (515) 883-2626.</p>
+  </div>
+</div>
 
-<% if notice %>
-    <h4><%= notice %></h4>
-<% end %>
+
