@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324014614) do
+ActiveRecord::Schema.define(version: 20180324042152) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(version: 20180324014614) do
   create_table "donor_fund_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "donor_id"
     t.integer  "fund_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "external_fund_id"
     t.index ["donor_id"], name: "index_donor_fund_relations_on_donor_id", using: :btree
     t.index ["fund_id"], name: "index_donor_fund_relations_on_fund_id", using: :btree
   end
