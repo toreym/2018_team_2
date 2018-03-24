@@ -21,6 +21,12 @@ class FundingNeed < ApplicationRecord
       errors.add(:end_date, "Can't be more than 365 days from now.")
     end
   end
+  
+  def get_web_link
+    unless self.website.starts_with? "http://", "https://"
+    	"http://#{self.website}"
+	end
+  end
 
   has_attached_file :image,
                     {styles: { medium: "300x300>", thumb: "100x100>" },
