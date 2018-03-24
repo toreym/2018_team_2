@@ -7,7 +7,7 @@ class OrganizationAbility
 
     can :manage, OrganizationUser, :id => org_user.id
 
-    can [:new, :create, :read, :destroy], FundingNeed, :organization_id => org_user.organizations.ids.append(nil)
+    can [:new, :create, :read, :destroy, :update], FundingNeed, :organization_id => org_user.organizations.ids.append(nil)
 
   end
 end
