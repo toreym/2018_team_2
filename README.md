@@ -15,9 +15,9 @@ Users will navigate to this site by genric link on Stellar's website. Then by ma
 - AWS 
 
 ####  How To Run
-#####Command line commands
+##### Command line commands
 * Load database `rake db:migrate`
 * Download/Build gems `bundle install`
 * Run server from cmd `rails s`
 
-###Deployment Instructions
+### Deployment Instructions
