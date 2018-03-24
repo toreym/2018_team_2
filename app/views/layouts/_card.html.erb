@@ -1,5 +1,5 @@
 <% @funding_needs.each do |funding_need| %>
-  <div class="text-center flip p-2 d-flex flex-wrap">
+  <div class="card-container text-center flip p-2 d-flex flex-wrap">
     <div class="card box-shadow d-flex flex-wrap">
       <div class="face front">
         <div class="card-header card-field-header">
@@ -13,8 +13,8 @@
           <% end %>
           <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
           <h4 class="">Cause Focus:
-            <% funding_need.interests.each do |fieldinterest| %>
-              <span class="badge badge-pill interest-color"><%= fieldinterest.name %></span>
+            <% funding_need.interests.limit(2).each do |interest| %>
+              <span class="badge badge-pill interest-color"><%= interest.name %></span>
             <% end %>
           </h4>
         </div>
@@ -29,11 +29,6 @@
           <h3><a href="" class="pt-2"><%= funding_need.website %></a></h3>
           <h3 class="pt-2">Funding Goal: <%= number_to_currency funding_need.goal %></h3>
           <h4 class="pt-2">Funding Deadline: <%= funding_need.end_date.strftime("%B %e, %Y") %></h4>
-          <div class="justify-content-end p-2">
-            <a class="btn toggle">
-              <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
-            </a>
-          </div>
         </div>
       </div>
     </div>
