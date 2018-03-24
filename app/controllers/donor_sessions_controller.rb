@@ -12,15 +12,15 @@ class DonorSessionsController < ApplicationController
       end
 
       self.current_donor = donor
-      redirect_to root_path, notice: 'Signed-in sucesfully'
+      redirect_to root_path, notice: 'Signed in successfully!'
     else
-      redirect_to root_path, alert: 'Invalid or expired login link'
+      redirect_to root_path, notice: 'Invalid or expired login link.'
     end
   end
 
   def destroy
     self.current_donor = nil
-    redirect_to root_path, notice: 'Sucesfully signed-out'
+    redirect_to root_path, notice: 'Successfully logged out'
   end
 
   def request_new_session
@@ -32,7 +32,7 @@ class DonorSessionsController < ApplicationController
       # send them an email with the new link
       DonorRequestSessionMailer.request_session(@donor).deliver_now
 
-      redirect_to root_path, notice: "Check your email. We've sent you a link to login."
+      redirect_to root_path, notice: "Please check your email. We've sent you a link to log in."
     else
       redirect_to root_path, notice: "We do not see an account for you. Please contact us to register as a donor."
     end

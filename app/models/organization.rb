@@ -47,4 +47,8 @@ class Organization < ApplicationRecord
       Organization.create(:email => email, :ein => ein, :name => name, :external_id => external_id, organization_user_id: org_user.id)
     end
   end
+
+  def stellar_search_url
+     "https://dmf.iphiview.com/dmf/ManageMyFund/RecommendGrants/AddaGrantee/AddaGranteeResults/tabid/528/dispatch/enhancedcharitysearch_keywords%24#{self.ein}_exact%24True_me%24False_cce%24False/Default.aspx#dispatch=EnhancedCharitySearch_keywords%24#{self.ein}_exact%24True_me%24False_cce%24False"
+  end
 end

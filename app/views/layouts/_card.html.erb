@@ -14,7 +14,7 @@
           <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
           <h4 class="">Cause Focus:
             <% funding_need.interests.limit(2).each do |interest| %>
-              <span class="badge badge-pill interest-color"><%= interest.name %></span>
+              <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
             <% end %>
           </h4>
         </div>
@@ -25,10 +25,11 @@
         </div>
         <div class="card-body">
           <h3 class="pt-2"><%= funding_need.name %></h3>
-          <p class="pt-2"> <%=h truncate(funding_need.description, :length => 350) %></p>
+          <p class="pt-2"> <%= truncate(funding_need.description, :length => 350) %></p>
           <h3><a href="" class="pt-2"><%= funding_need.website %></a></h3>
           <h3 class="pt-2">Funding Goal: <%= number_to_currency funding_need.goal %></h3>
           <h4 class="pt-2">Funding Deadline: <%= funding_need.end_date.strftime("%B %e, %Y") %></h4>
+          <a href="<%= funding_need.organization.stellar_search_url %>" class="btn btn-primary">Make a grant</a>
         </div>
       </div>
     </div>
