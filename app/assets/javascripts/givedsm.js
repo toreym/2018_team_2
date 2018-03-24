@@ -14,13 +14,19 @@ function set_funding_needs_listeners(){
     });
 }
 function set_field_of_interest_listeners(){
-    $('[data-interest-id]').each(function(){
-        elem = $(this);
-        elem.on('click' , function(){
-            $.post('/update_user_field_of_interest', function(data){
+    $('[data-interest-id]').on('click' , function(){
+        $.ajax({
+            type: "POST",
+            url: '/update_user_field_of_interest',
+            data: {interest_id: $(this).data('interest-id')},
+            success: function(data){
                 $('#preferenceContainer').html(data);
                 set_field_of_interest_listeners();
-            });
+                $.get('/get_funding_needs', function(data){
+                    $('#interestContainer').html(data);
+                    set_funding_needs_listeners();
+                });
+            }
         });
     });
 }
