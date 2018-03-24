@@ -19,4 +19,5 @@ class Fund < ApplicationRecord
       Fund.create(:name => name, :external_id => external_id, :spendable_balance => spendable_balance)
     end
   end
+
 end

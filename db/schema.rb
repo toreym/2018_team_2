@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20180324010835) do
   create_table "donors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "external_id"
+    t.string   "external_fund_id"
+    t.string   "fund_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
