@@ -1,5 +1,5 @@
 <% @funding_needs.each do |funding_need| %>
-  <div class="text-center flip p-2 d-flex flex-wrap">
+  <div class="card-container text-center flip p-2 d-flex flex-wrap">
     <div class="card box-shadow d-flex flex-wrap">
       <div class="face front">
         <div class="card-header card-field-header">
@@ -29,11 +29,6 @@
           <a href="" class="pt-2"><%= funding_need.website %></a>
           <h3 class="pt-2"><%= number_to_currency funding_need.goal %></h3>
           <h3 class="pt-2"><%= funding_need.end_date %></h3>
-          <div class="justify-content-end p-2">
-            <a class="btn toggle">
-              <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
-            </a>
-          </div>
         </div>
       </div>
     </div>

@@ -1,18 +1,17 @@
 
 
 function set_funding_needs_listeners(){
-    $('.toggle').on('click' ,function(event){
-        $( event.target ).closest('.card').toggleClass('flipped');
+    toggles = $('.card-container');
+
+    toggles.on('mouseenter' ,function(event){
+        $( this ).find('.card').addClass('flipped');
     });
 
-    $('#front').on('click' ,function(event){
-        $( event.target ).closest('.card').addClass('flipped');
-    });
-
-    $('#back').on('click' ,function(event){
-        $( event.target ).closest('.card').removeClass('flipped');
+    toggles.on('mouseleave' ,function(event){
+        $( this ).find('.card').removeClass('flipped');
     });
 }
+
 function set_field_of_interest_listeners(){
     $('[data-interest-id]').on('click' , function(){
         $.ajax({
