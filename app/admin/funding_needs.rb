@@ -6,15 +6,15 @@ ActiveAdmin.register FundingNeed do
     f.inputs 'FundingNeed' do
       f.input :approved
       f.input :name
-      f.input :organization_id
+      f.input :organization, :label => 'Organization', :as => :select, :collection => Organization.order(name: :asc).all.map{|o| [o.name, o.id]}, include_blank: false
       f.input :description
       f.input :website
       f.input :goal
       f.input :end_date
+      f.input :raised
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
-      f.input :approved
       f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item."
       f.input :image
     end
@@ -34,11 +34,17 @@ ActiveAdmin.register FundingNeed do
     column :approved
     column :name
     column :organization
+    column :end_date
+    column :description
+    column :website
+    column :raised
+    column :goal
     column :primary_contact_name
     column :primary_contact_email
     column :primary_contact_phone
-    column :end_date
     column :interests
+    column :created_at
+    column :updated_at
     actions
   end
 
