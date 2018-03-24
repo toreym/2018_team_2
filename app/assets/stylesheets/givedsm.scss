@@ -27,8 +27,7 @@ body {}
 }
 
 .card-img {
-  width: 70%;
-  height: 70%;
+  max-width: 200px;
 }
 
 .card-field-header {
@@ -61,6 +60,7 @@ body {}
   -webkit-perspective: 800;
   perspective: 800;
   position: relative;
+  max-width: 300px;
 }
 
 .flip .card.flipped {
