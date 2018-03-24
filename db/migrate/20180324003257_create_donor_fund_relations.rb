@@ -6,5 +6,7 @@ class CreateDonorFundRelations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    remove_column :donors, :fund_id
+    remove_column :donors, :external_fund_id
   end
 end

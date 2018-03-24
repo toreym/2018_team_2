@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180324003257) do
     t.string   "name"
     t.string   "external_id"
     t.string   "external_fund_id"
-    t.string   "fund_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
