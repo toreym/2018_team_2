@@ -6,7 +6,7 @@ ActiveAdmin.register FundingNeed do
     f.inputs 'FundingNeed' do
       f.input :approved
       f.input :name
-      f.input :organization, include_blank: false
+      f.input :organization, :label => 'Organization', :as => :select, :collection => Organization.order(name: :asc).all.map{|o| [o.name, o.id]}, include_blank: false
       f.input :description
       f.input :website
       f.input :goal
@@ -15,7 +15,7 @@ ActiveAdmin.register FundingNeed do
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
-      f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item."
+      f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item.", :label => 'Interest', :as => :select, :collection => Interest.order(name: :asc).all.map{|o| [o.name, o.id]}
       f.input :image
     end
     f.actions

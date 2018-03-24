@@ -21,12 +21,14 @@ body{
 
 //brand
 .brand-bar {
-  background-color: $base-blue;
+  background-color: white;
+  height: 130px;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .brand-logo {
-  width: 20%;
-  height: 20%;
+  width: auto;
+  height: 80px;
 }
 
 .card-img {
@@ -60,14 +62,16 @@ body{
 }
 
 .flip {
-  -webkit-perspective: 800;
-  perspective: 800;
+  -webkit-perspective: 800px;
+  -ms-perspective: 800px;
+  perspective: 800px;
   position: relative;
   max-width: 350px;
 }
 
 .flip .card.flipped {
   -webkit-transform: rotatey(-180deg);
+  -ms-transform: rotatey(-180deg);
   transform: rotatey(-180deg);
 }
 
@@ -75,12 +79,15 @@ body{
   height: 100%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
   transform-style: preserve-3d;
   transition: 0.5s;
 }
 
 .flip .card .face {
   -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 2;
 }
@@ -91,8 +98,33 @@ body{
   z-index: 1;
 }
 
+.flip .card.flipped .front {
+  opacity: 0;
+  transition: .2s;
+
+}
+
+.flip .card.flipped .back {
+  opacity: 1;
+  transition: .2s;
+
+}
+
+.flip .card .front {
+  opacity: 1;
+  transition: .2s;
+
+}
+
+.flip .card .back {
+  opacity: 0;
+  transition: .2s;
+
+}
+
 .flip .card .back {
   -webkit-transform: rotatey(180deg);
+  -ms-transform: rotatey(180deg);
   transform: rotatey(180deg);
 }
 
@@ -102,4 +134,10 @@ body{
 
 .heart {
   color: $warm-red;
+}
+
+.list-group-item:hover {
+  background-color: $cool-purple;
+  color: white;
+  cursor: pointer;
 }
