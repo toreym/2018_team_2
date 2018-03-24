@@ -5,18 +5,13 @@
         <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
-        <div class="card-body">
+        <div class="card-body toggle">
           <img class="card-img well" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <h3 class="pt-2"> <%= funding_need.name %> </h3>
           <h3 class="">Cause Focus:
             <span class="badge badge-pill interest-color">Education</span>
             <span class="badge badge-pill interest-color">Youth</span>
           </h3>
-          <div class="fixed-bottom">
-            <a class="btn toggle">
-              <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
-            </a>
-          </div>
         </div>
       </div>
       <div class="face back">
@@ -29,12 +24,11 @@
           <a href="" class="pt-2"><%= funding_need.website %></a>
           <h3 class="pt-2"><%= funding_need.goal %></h3>
           <h3 class="pt-2"><%= funding_need.end_date %></h3>
-          <!--<button class="btn" type="button">Grant from Community Foundation Charitable Fund </button>-->
           <div class="justify-content-end p-2">
             <a class="btn toggle">
               <h3>Flip <span class="badge badge-secondary badge-pill flip-color"><i class="fas fa-arrow-circle-right"></i></span></h3>
             </a>
-          </div>  
+          </div>
         </div>
       </div>
     </div>
