@@ -60,5 +60,6 @@ ActiveAdmin.register Donor do
     # actions :defaults => true do |donor|
     #   link_to "Sign in", log_in_as_admin_donor_path(donor)
     # end
+    actions
   end
 end
