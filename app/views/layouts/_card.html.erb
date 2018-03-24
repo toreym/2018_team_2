@@ -27,6 +27,7 @@
           <h3 class="pt-2"><%= funding_need.name %></h3>
           <p class="pt-2"> <%= funding_need.description %></p>
           <a href="" class="pt-2"><%= funding_need.website %></a>
+          <a href="<%= funding_need.organization.stellar_search_url %>" class="btn btn-primary">Make a grant</a>
           <h3 class="pt-2"><%= number_to_currency funding_need.goal %></h3>
           <h3 class="pt-2"><%= funding_need.end_date %></h3>
         </div>
