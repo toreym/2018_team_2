@@ -2,22 +2,22 @@ class FieldOfInterestsController < ApplicationController
 
 
    def get_user_field_of_interests
-     @user_interests = current_donor&.field_of_interests.to_a || Donor.find(1).field_of_interests.to_a
+     user_interest_ids = current_donor.field_of_interests.ids
 
      all_interests = get_field_of_interests.to_a
-
-     user_interests_ids = @user_interests.map { |i| i.interest_id }
-     combined_interests = []
+     @combined_interests = []
 
      all_interests.each do |i|
-       combined_interests.append({
+       @combined_interests.append({
          name: i.name,
-         liked: user_interests_ids.include?(i.id)
+         category: i.category,
+         subcategory: i.subcategory,
+         liked: user_interest_ids.include?(i.id)
        })
      end
 
      respond_to do |format|
-       format.json { render json: combined_interests.to_json }
+       format.html {render partial: 'layouts/field_of_interest'}
      end
    end
 

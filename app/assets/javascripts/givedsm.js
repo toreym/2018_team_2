@@ -2,6 +2,9 @@ $(function () {
     $.get('/get_funding_needs', function(data){
         $('#interestContainer').html(data);
     });
+    $.get('/get_user_field_of_interests', function(data){
+        $('#preferenceContainer').html(data);
+    });
 
     $('.toggle').on('click' ,function(){
         $('.card').toggleClass('flipped');
