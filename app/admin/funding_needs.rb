@@ -14,7 +14,6 @@ ActiveAdmin.register FundingNeed do
       f.input :primary_contact_name
       f.input :primary_contact_email
       f.input :primary_contact_phone
-      f.input :approved
       f.input :interests, hint: "Hold CTRL and click (CMD on the Mac) to select more than one item."
       f.input :image
     end
