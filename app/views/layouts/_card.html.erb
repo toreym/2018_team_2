@@ -1,12 +1,12 @@
 <% @funding_needs.each do |funding_need| %>
-  <div class="text-center flip p-2">
-    <div class="card box-shadow">
+  <div class="text-center flip p-2 d-flex flex-wrap">
+    <div class="card box-shadow d-flex flex-wrap">
       <div class="face front">
         <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
         <div class="card-body">
-          <img class="card-img well" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
+          <img class="card-img" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <h3 class="pt-2"> <%= funding_need.name %> </h3>
           <h3 class="">Cause Focus:
             <span class="badge badge-pill interest-color">Education</span>
