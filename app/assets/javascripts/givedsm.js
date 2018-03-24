@@ -1,19 +1,24 @@
-$(function () {
-    $.get('/get_funding_needs', function(data){
-        $('#interestContainer').html(data);
-    });
-
+function set_listeners(){
     $('.toggle').on('click' ,function(){
-        $('.card').toggleClass('flipped');
+        $( event.target ).closest('.card').toggleClass('flipped');
     });
 
     $('#front').on('click' ,function(){
-        $('.card').addClass('flipped');
+        $( event.target ).closest('.card').addClass('flipped');
     });
 
     $('#back').on('click' ,function(){
-        $('.card').removeClass('flipped');
+        $( event.target ).closest('.card').removeClass('flipped');
     });
+}
+
+$(function () {
+  set_listeners();
+    $.get('/get_funding_needs', function(data){
+        $('#interestContainer').html(data);
+        set_listeners();
+    });
+
 
   $('.list-group.checked-list-box .list-group-item').each(function () {
 
