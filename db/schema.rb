@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324025500) do
+ActiveRecord::Schema.define(version: 20180324042152) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -63,11 +63,19 @@ ActiveRecord::Schema.define(version: 20180324025500) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "donor_fund_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "donor_id"
+    t.integer  "fund_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "external_fund_id"
+    t.index ["donor_id"], name: "index_donor_fund_relations_on_donor_id", using: :btree
+    t.index ["fund_id"], name: "index_donor_fund_relations_on_fund_id", using: :btree
+  end
+
   create_table "donors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "external_id"
-    t.string   "external_fund_id"
-    t.string   "fund_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -108,18 +116,22 @@ ActiveRecord::Schema.define(version: 20180324025500) do
   create_table "funding_needs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "organization_id"
-    t.string   "description"
+    t.text     "description",           limit: 65535
     t.string   "website"
     t.integer  "goal"
-    t.date     "end_date",              null: false
+    t.date     "end_date",                            null: false
     t.string   "image_url"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "raised"
     t.string   "primary_contact_name"
     t.string   "primary_contact_email"
     t.string   "primary_contact_phone"
     t.boolean  "approved"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "funds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -140,6 +152,23 @@ ActiveRecord::Schema.define(version: 20180324025500) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "organization_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_organization_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_organization_users_on_reset_password_token", unique: true, using: :btree
+  end
+
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "external_id"
@@ -157,6 +186,10 @@ ActiveRecord::Schema.define(version: 20180324025500) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "website"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_organizations_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true, using: :btree
   end

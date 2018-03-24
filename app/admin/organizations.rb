@@ -1,11 +1,12 @@
 ActiveAdmin.register Organization do
-  permit_params :name, :ein, :organization_user_id
+  permit_params :name, :ein, :organization_user_id, :image
 
   form do |f|
     f.inputs 'Organization' do
       f.input :name
       f.input :ein
       f.input :organization_user
+      f.input :image
     end
     f.actions
   end

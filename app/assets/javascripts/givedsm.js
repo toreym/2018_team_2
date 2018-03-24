@@ -1,6 +1,22 @@
+function set_listeners(){
+    $('.toggle').on('click' ,function(){
+        $( event.target ).closest('.card').toggleClass('flipped');
+    });
+
+    $('#front').on('click' ,function(){
+        $( event.target ).closest('.card').addClass('flipped');
+    });
+
+    $('#back').on('click' ,function(){
+        $( event.target ).closest('.card').removeClass('flipped');
+    });
+}
+
 $(function () {
+    set_listeners();
     $.get('/get_funding_needs', function(data){
         $('#interestContainer').html(data);
+        set_listeners();
     });
     $.get('/get_user_field_of_interests', function(data){
         $('#preferenceContainer').html(data);
