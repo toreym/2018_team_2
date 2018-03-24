@@ -15,6 +15,11 @@ ActiveAdmin.register FundingNeed, namespace: :myorg do
       f.input :description, hint: "No more than 50 words. A shorter description performs better!", :input_html => {:rows => 2, :cols => 50}
       f.input :website
       f.input :image
+      f.input :goal
+      f.input :end_date
+      f.input :primary_contact_name
+      f.input :primary_contact_email
+      f.input :primary_contact_phone
     end
     f.actions
   end
