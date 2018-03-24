@@ -1,0 +1,2 @@
+class DonorFundRelation < ApplicationRecord
+end
