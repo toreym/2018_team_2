@@ -5,17 +5,18 @@
         <div class="card-header card-field-header">
           <h3 class=""><%= funding_need.organization.name %></h3>
         </div>
-        <div class="card-body toggle">
+        <div class="card-image-section">
           <% if Rails.env.production? %>
-            <%= image_tag funding_need.image.url(:medium), :class => "card-img" %>
+              <%= image_tag funding_need.image.url(:medium) %>
           <% else %>
-            <img class="card-img" src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
+              <img src="https://cdn.glitch.com/6a75ee71-9345-4dd6-ac44-5fb0d2c1d56a%2Fimage.png?1521776197497" alt="Card image"/>
           <% end %>
+        </div>
+        <div class="card-body toggle">
           <h2 class="pt-2"><bold> <%= funding_need.name %></bold> </h2>
-          <h4 class="">Cause Focus:
-            <% funding_need.interests.limit(2).each do |interest| %>
-              <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
-            <% end %>
+          <% funding_need.interests.limit(5).each do |interest| %>
+            <span class="badge badge-pill interest-color"><%= truncate(interest.name, length: 20) %></span>
+          <% end %>
           </h4>
         </div>
       </div>
@@ -26,7 +27,7 @@
         <div class="card-body">
           <h3 class="pt-2"><%= funding_need.name %></h3>
           <p class="pt-2"> <%= truncate(funding_need.description, :length => 350) %></p>
-          <h3 class="brand-link"><%= link_to "Learn More", funding_need.get_web_link %></h3>
+          <h3 class="brand-link"><%= link_to "Project Website", funding_need.get_web_link, target: "_blank" %></h3>
           <h3 class="pt-2">Funding Goal: <%= number_to_currency funding_need.goal %></h3>
           <h6 class="pt-2">Funding Deadline: <%= funding_need.end_date.strftime("%B %e, %Y") %></h6>
           <a href="<%= funding_need.organization.stellar_search_url %>" class="btn btn-donate">Make a Grant</a>

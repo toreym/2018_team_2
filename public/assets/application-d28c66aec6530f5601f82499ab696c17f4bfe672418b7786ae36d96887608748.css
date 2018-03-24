@@ -1,0 +1,164 @@
+/* line 18, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* line 23, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.brand-bar {
+  background-color: white;
+  height: 130px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+/* line 29, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.brand-logo {
+  width: auto;
+  height: 80px;
+}
+
+/* line 35, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.card-image-section img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 41, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.card-img {
+  max-width: 200px;
+}
+
+/* line 45, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.card-field-header {
+  margin-bottom: 0 !important;
+  padding: 0.5rem;
+}
+
+/* line 50, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.interest-color {
+  background-color: #001e60;
+  color: white;
+  margin: 5px;
+}
+
+/* line 56, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.btn-donate,
+.btn-donate:active,
+.btn-donate:hover,
+.btn-donate:visited {
+  background-color: #672146 !important;
+  color: white;
+  margin: 5px;
+}
+
+/* line 65, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip-color {
+  background-color: #ffb81c;
+  color: white;
+  margin: 5px;
+}
+
+/* line 71, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip {
+  -webkit-perspective: 800px;
+  -ms-perspective: 800px;
+  perspective: 800px;
+  position: relative;
+  max-width: 350px;
+}
+
+/* line 79, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+  -ms-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+/* line 85, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+/* line 95, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card .face {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+/* line 102, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card .front {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+/* line 108, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card.flipped .front {
+  opacity: 0;
+  transition: .2s;
+}
+
+/* line 114, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card.flipped .back {
+  opacity: 1;
+  transition: .2s;
+}
+
+/* line 120, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card .front {
+  opacity: 1;
+  transition: .2s;
+}
+
+/* line 126, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card .back {
+  opacity: 0;
+  transition: .2s;
+}
+
+/* line 132, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.flip .card .back {
+  -webkit-transform: rotatey(180deg);
+  -ms-transform: rotatey(180deg);
+  transform: rotatey(180deg);
+}
+
+/* line 138, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.inner {
+  margin: 0 !important;
+}
+
+/* line 142, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.heart {
+  color: #e03e52;
+}
+
+/* line 146, /Users/ericcheatham/workspaces/personal/2018_team_2/app/assets/stylesheets/givedsm.scss */
+.list-group-item:hover {
+  background-color: #407ec9;
+  color: white;
+  cursor: pointer;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
