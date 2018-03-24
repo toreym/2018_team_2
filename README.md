@@ -21,3 +21,8 @@ Users will navigate to this site by genric link on Stellar's website. Then by ma
 * Run server from cmd `rails s`
 
 ### Deployment Instructions
+1. Navigate to OpsWorks stack 
+2. Click on "Deployments" on the lefthand side
+3. Click "Deploy and App"
+4. Ensure that "communityfoundation (railsapp)" is selected
+5. Click "Deploy"
