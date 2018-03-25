@@ -1,4 +1,7 @@
 <div class="well">
+  <div class="p-2">
+    1) Select the causes you care about most
+  </div>
   <% @combined_interests.each do |interest| %>
     <div  class="list-group-item" data-interest-id="<%= interest[:id] %>">
       <% label = if interest[:subcategory].present?

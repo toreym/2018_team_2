@@ -26,6 +26,23 @@ body{
   color: $base-green;
 }
 
+a{
+  color: $base-purple;
+}
+a:hover{
+  color: $base-green;
+}
+
+.btn-primary{
+  background-color: $base-purple;
+  border-color: $base-purple;
+}
+.btn-primary:hover{
+  background-color: $base-green;
+  border-color: $base-green;
+  color: black;
+}
+
 .card-image-section {
   img {
     width: 100%;
@@ -144,7 +161,7 @@ body{
 }
 
 .list-group-item:hover {
-  background-color: $cool-purple;
+  background-color: $base-purple;
   color: white;
   cursor: pointer;
 }
