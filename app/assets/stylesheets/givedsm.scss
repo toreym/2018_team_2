@@ -69,11 +69,14 @@ a:hover{
 
 .btn-donate,
 .btn-donate:active,
-.btn-donate:hover,
 .btn-donate:visited {
   background-color: $base-green !important;
   color: black;
   margin: 5px;
+}
+
+.btn-donate:hover{
+  color: white;
 }
 //flip cards
 .flip-color {
