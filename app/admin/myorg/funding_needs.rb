@@ -31,6 +31,17 @@ ActiveAdmin.register FundingNeed, namespace: :myorg do
     f.actions
   end
 
+  index do
+    column :approved
+    column :name
+    column :organization
+    column :end_date
+    column :raised
+    column :goal
+    column :primary_contact_name
+    actions
+  end
+
   # This is what Celia had to say ---> e
 
 end

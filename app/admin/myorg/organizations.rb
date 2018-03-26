@@ -13,4 +13,12 @@ ActiveAdmin.register Organization, namespace: :myorg do
     end
     f.actions
   end
+
+  index do
+    column :name
+    column "ID" do |d|
+      d.external_id
+    end
+    column :ein
+  end
 end

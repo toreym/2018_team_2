@@ -35,16 +35,10 @@ ActiveAdmin.register FundingNeed do
     column :name
     column :organization
     column :end_date
-    column :description
-    column :website
-    column :raised
-    column :goal
     column :primary_contact_name
     column :primary_contact_email
     column :primary_contact_phone
     column :interests
-    column :created_at
-    column :updated_at
     actions
   end
 

@@ -26,6 +26,7 @@ ActiveAdmin.register Organization do
       d.external_id
     end
     column :ein
+    column :organization_user
     actions
   end
 end
