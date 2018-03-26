@@ -27,7 +27,7 @@
         <div class="card-body">
           <h3 class="pt-2"><%= funding_need.name %></h3>
           <p class="pt-2"> <%= truncate(funding_need.description, :length => 350) %></p>
-          <h3 class="brand-link"><%= link_to "Project Website", funding_need.get_web_link, target: "_blank" %></h3>
+          <h3 class="brand-link"><%= link_to "Learn More", funding_need.get_web_link, target: "_blank" %></h3>
           <h3 class="pt-2">Funding Goal: <%= number_to_currency funding_need.goal, locale: :en, precision: 0 %></h3>
           <h6 class="pt-2">Funding Deadline: <%= funding_need.end_date.strftime("%B %e, %Y") %></h6>
           <a href="<%= funding_need.organization.stellar_search_url %>" class="btn btn-donate">Make a Grant</a>
